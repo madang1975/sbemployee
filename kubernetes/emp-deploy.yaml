@@ -33,10 +33,10 @@ spec:
           httpGet:
             path: /hello
             port: 8080
-          initialDelaySeconds: 45
+          initialDelaySeconds: 60
         readinessProbe:
           httpGet:
             path: /hello
             port: 8080            
-          initialDelaySeconds: 45
+          initialDelaySeconds: 60
 
