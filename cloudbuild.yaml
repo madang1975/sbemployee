@@ -15,5 +15,5 @@ steps:
     - --location=${CLOUDSDK_COMPUTE_ZONE}
     - --cluster=${CLOUDSDK_CONTAINER_CLUSTER}
     env:
-    - 'CLOUDSDK_COMPUTE_ZONE=us-east2-b'
+    - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
     - 'CLOUDSDK_CONTAINER_CLUSTER=my-cluster'
