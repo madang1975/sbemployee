@@ -12,8 +12,5 @@ steps:
     - run
     - --filename=kubernetes
     - --image=gcr.io/rock-task-241318/empapp:1.0
-    - --location=${CLOUDSDK_COMPUTE_ZONE}
-    - --cluster=${CLOUDSDK_CONTAINER_CLUSTER}
-    env:
-    - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
-    - 'CLOUDSDK_CONTAINER_CLUSTER=my-cluster'
+    - --location=us-east1-b
+    - --cluster=my-cluster
