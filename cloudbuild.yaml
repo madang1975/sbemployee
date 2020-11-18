@@ -1,0 +1,19 @@
+steps:
+  - name: maven:3-jdk-8
+    entrypoint: mvn
+    args: ['package','-Dmaven.test.skip=true']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/rock-task-241318/empapp:1.0', '.']
+    timeout: 500s
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/rock-task-241318/empapp:1.0']
+  - name: "gcr.io/cloud-builders/gke-deploy"
+    args:
+    - run
+    - --filename=kubernetes
+    - --image=gcr.io/rock-task-241318/empapp:1.0
+    - --location=${CLOUDSDK_COMPUTE_ZONE}
+    - --cluster=${CLOUDSDK_CONTAINER_CLUSTER}
+    env:
+    - 'CLOUDSDK_COMPUTE_ZONE=us-east2-b'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=my-cluster'

@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emp-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: employee
+      type: app
+  template:
+    metadata:
+      labels:
+        name: employee
+        type: app
+    spec:
+      containers:
+      - name: emp-app
+        image: gcr.io/rock-task-241318/empapp:1.0
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 200m
+            memory: 200Mi
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /hello
+            port: 8080
+          initialDelaySeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /hello
+            port: 8080            
+
+
