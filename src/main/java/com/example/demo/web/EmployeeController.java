@@ -47,13 +47,13 @@ public class EmployeeController {
   // Single item
 
   @GetMapping("/employees/{id}")
-  Employee one(@PathVariable Long id) {
+  Employee one(@PathVariable String id) {
 
     return repository.findById(id).get();
   }
 
   @PutMapping("/employees/{id}")
-  Employee update(@RequestBody Employee newEmployee, @PathVariable Long id) {
+  Employee update(@RequestBody Employee newEmployee, @PathVariable String id) {
 
     return repository.findById(id)
       .map(employee -> {
@@ -68,7 +68,7 @@ public class EmployeeController {
   }
 
   @DeleteMapping("/employees/{id}")
-  void delete(@PathVariable Long id) {
+  void delete(@PathVariable String id) {
     repository.deleteById(id);
   }
 }
