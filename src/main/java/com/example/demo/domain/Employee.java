@@ -1,14 +1,15 @@
 package com.example.demo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
 
-@Entity
+//@Entity
 public class Employee {
 
   @Id
-  @GeneratedValue
+  //@GeneratedValue
   private Long id;
   private String name;
   private String role;
