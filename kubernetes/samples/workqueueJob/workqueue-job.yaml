@@ -1,0 +1,15 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: wq-job
+spec:
+  parallelism: 2
+  template:
+    metadata:
+      name: wq-job
+    spec:
+      containers:
+      - name: redis-container
+        image: gcr.io/rock-task-241318/jobq:1.0
+      restartPolicy: OnFailure        

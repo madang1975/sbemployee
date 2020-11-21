@@ -1,16 +1,14 @@
 package com.example.demo.domain;
 
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.Id;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-//@Entity
+@Document(collection = "Employee")
 public class Employee {
 
   @Id
-  //@GeneratedValue
   private String id;
+  
   private String name;
   private String role;
 
